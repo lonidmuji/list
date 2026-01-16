@@ -1,48 +1,70 @@
-import "./App.css";
+﻿import "./App.css";
 
 export default function App() {
+  const services = [
+    { category: "MANICURE", items: [
+      { name: "Xhel thua natural", price: "1200 LEKE" },
+      { name: "Tipsa normal", price: "1500 LEKE" },
+      { name: "Tipsa formë C", price: "1800 LEKE" },
+      { name: "Rimbushje", price: "1200 LEKE" },
+      { name: "Heqje xheli / tipsi", price: "200 LEKE" },
+      { name: "Heqje xheli + pastrim kutikulash", price: "500 LEKE" },
+      { name: "Heqje akriliku", price: "500 LEKE" },
+      { name: "Zgjatim me tips 1 gisht", price: "100 LEKE" },
+      { name: "Gjatesia \"Extra Long\"", price: "2500 LEKE" },
+      { name: "Piktura", price: "100–500 LEKE" },
+      { name: "French classic", price: "200 LEKE" },
+      { name: "French me detaje", price: "200–500 LEKE" },
+      { name: "Ombre", price: "200 LEKE" },
+      { name: "Pasqyre", price: "200 LEKE" },
+      { name: "Gure", price: "200 LEKE" },
+      { name: "Detaje 3D", price: "200–500 LEKE" },
+      { name: "Magnet / Xixa", price: "200 LEKE" }
+    ]},
+    { category: "PEDICURE", items: [
+      { name: "Manikyr xhel këmbët", price: "1000 LEKE" },
+      { name: "Xhel këmbët", price: "1200 LEKE" },
+      { name: "Trajtim thonjtë e këmbës", price: "2000 LEKE" },
+      { name: "Parafin këmbët", price: "500 LEKE" },
+      { name: "Parafin duart", price: "500 LEKE" },
+      { name: "French classic", price: "200 LEKE" },
+      { name: "Dizajno (gure, xixa, piktura)", price: "200–500 LEKE" },
+      { name: "Zgjatim 1 gisht", price: "100 LEKE" }
+    ]}
+  ];
+
   return (
     <div className="page">
       <div className="card">
-
         <h1 className="brand">veroniikanailss</h1>
         <p className="subtitle">Price List</p>
+        
+        {services.map((section, idx) => (
+          <div key={idx}>
+            <h2 className="section">{section.category}</h2>
+            <ul className="prices">
+              {section.items.map((item, itemIdx) => (
+                <li key={itemIdx}>
+                  <span>{item.name}</span>
+                  <div className="dotted"></div>
+                  <b>{item.price}</b>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
 
-        {/* MANICURE */}
-        <h2 className="section">MANICURE</h2>
-        <ul className="prices">
-          <li><span>Xhel thua natural</span><b>1200 LEKE</b></li>
-          <li><span>Tipsa normal</span><b>1500 LEKE</b></li>
-          <li><span>Tipsa formë C</span><b>1800 LEKE</b></li>
-          <li><span>Rimbushje</span><b>1200 LEKE</b></li>
-          <li><span>Heqje xheli / tipsi</span><b>200 LEKE</b></li>
-          <li><span>Heqje xheli + pastrim kutikulash</span><b>500 LEKE</b></li>
-          <li><span>Heqje akriliku</span><b>500 LEKE</b></li>
-          <li><span>Zgjatim me tips 1 gisht</span><b>100 LEKE</b></li>
-          <li><span>Gjatesia “Extra Long”</span><b>2500 LEKE</b></li>
-          <li><span>Piktura</span><b>100–500 LEKE</b></li>
-          <li><span>French classic</span><b>200 LEKE</b></li>
-          <li><span>French me detaje</span><b>200–500 LEKE</b></li>
-          <li><span>Ombre</span><b>200 LEKE</b></li>
-          <li><span>Pasqyre</span><b>200 LEKE</b></li>
-          <li><span>Gure</span><b>200 LEKE</b></li>
-          <li><span>Detaje 3D</span><b>200–500 LEKE</b></li>
-          <li><span>Magnet / Xixa</span><b>200 LEKE</b></li>
-        </ul>
-
-        {/* PEDICURE */}
-        <h2 className="section">PEDICURE</h2>
-        <ul className="prices">
-          <li><span>Manikyr xhel këmbët</span><b>1000 LEKE</b></li>
-          <li><span>Xhel këmbët</span><b>1200 LEKE</b></li>
-          <li><span>Trajtim thonjtë e këmbës</span><b>2000 LEKE</b></li>
-          <li><span>Parafin këmbët</span><b>500 LEKE</b></li>
-          <li><span>Parafin duart</span><b>500 LEKE</b></li>
-          <li><span>French classic</span><b>200 LEKE</b></li>
-          <li><span>Dizajno (gure, xixa, piktura)</span><b>200–500 LEKE</b></li>
-          <li><span>Zgjatim 1 gisht</span><b>100 LEKE</b></li>
-        </ul>
-
+        <div className="refill-dm">
+          <div>
+            <h3>REFILL</h3>
+            <p>Book your appointment</p>
+          </div>
+          <div style={{ borderLeft: "1px solid rgba(194, 138, 138, 0.15)" }}></div>
+          <div>
+            <h3>DM</h3>
+            <p>@veroniikanailss</p>
+          </div>
+        </div>
       </div>
     </div>
   );
